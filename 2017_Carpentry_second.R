@@ -110,8 +110,7 @@ species_count <- surveys_complete %>%
 surveys_comm_spp <- surveys_complete %>%
   filter(species_id %in% species_count$species_id) ## %in% means match
 
-summary(surveys_comm_spp$species_id)
-
+write.csv(surveys_comm_spp, file = "data_output/surveys_complete.csv")
 
 
 
