@@ -52,4 +52,48 @@ surveys %>%
   tally
 
 
+## challenge 2
+
+##  q1
+surveys %>%
+  group_by(plot_type) %>%
+  tally
+
+##Q2
+surveys %>%
+  filter(!is.na(hindfoot_length)) %>%
+  group_by(species_id) %>%
+  summarize(mean_fl = mean(hindfoot_length),
+            min_fl = mean(hindfoot_length),
+            max_fl = max(hindfoot_length))
+  
+##Q3
+surveys %>%
+  select(year, genus, species_id, weight) %>%
+  group_by(year) %>%
+  top_n(1, weight) %>%
+  arrange(year)
+
+##Q4
+surveys %>%
+  filter(sex == "M" | sex =="F") %>%
+  group_by(sex) %>%
+  summarize(n())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
