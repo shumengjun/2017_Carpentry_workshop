@@ -1,5 +1,6 @@
 ## Mengjun Shu 
 ## 2017 Yosemite workshop
+##08/18/2017
 
 ## download.file("https://ndownloader.figshare.com/files/2292169",
 ##            "data/portal_data_joined.csv")
@@ -7,6 +8,7 @@
 
 surveys <- read.csv("data/portal_data_joined.csv")
 
+## Explore data
 head(surveys)
 tail(surveys)
 tail(surveys, 12)
