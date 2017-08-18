@@ -38,8 +38,18 @@ challenge1 <- surveys %>%
 head(challenge1)
 
 
+## group by and summarize
+surveys %>%
+  filter(!is.na(weight),
+         sex == "M" | sex =="F") %>%
+  group_by(sex, species_id) %>%
+  summarise(mean_weight = mean(weight),
+            min_weight = min(weight))
 
-
+## tally count the total number of observations for the variable
+surveys %>%
+  group_by(sex) %>%
+  tally
 
 
 
