@@ -22,3 +22,24 @@ surveys %>%
          weogjt_kg2 = weight_kg * 2) %>% ## add another column
   tail
   
+
+## remove na
+surveys %>%
+  filter(!is.na(weight)) %>% ## remove NA
+  mutate(weight_kg = weight / 1000,
+         weogjt_kg2 = weight_kg * 2) %>%
+  head
+
+## challenge
+challenge1 <- surveys %>%
+  mutate(hindfoot_half = hindfoot_length /2 ) %>%
+  filter(!is.na(hindfoot_half), hindfoot_half < 30) %>%
+  select(species_id, hindfoot_half)
+head(challenge1)
+
+
+
+
+
+
+
