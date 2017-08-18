@@ -80,6 +80,48 @@ surveys %>%
   group_by(sex) %>%
   summarize(n())
 
+## export data
+
+surveys_complete <- surveys %>%
+  filter(species_id != " ") %>% ## remove missing species id
+  filter(!is.na(weight)) %>%
+  filter(!is.na(hindfoot_length)) %>%
+  filter(sex != "")
+
+
+##concise way
+
+surveys_complete <- surveys %>%
+  filter(species_id != "",
+         !is.na(weight),
+         !is.na(hindfoot_length),
+         sex != "")
+
+## extract the most common species_id
+
+species_count <- surveys_complete %>%
+  group_by(species_id) %>%
+  tally %>%
+  filter( n >= 50 )
+
+
+## only keep the most common species
+
+surveys_comm_spp <- surveys_complete %>%
+  filter(species_id %in% species_count$species_id) ## %in% means match
+
+summary(surveys_comm_spp$species_id)
+
+
+
+
+
+
+
+
+
+
+
 
 
 
